@@ -1,0 +1,32 @@
+  <!-- //to show flash msgs -->
+  <% if (success && success.length) { %>
+    <div class="flash-wrapper">
+      <div class="flash flash-success">
+        <%= success[0] %>
+      </div>
+    </div>
+  <% } %>
+
+  <% if (delReview.length) { %>
+    <div class="flash-wrapper">
+      <div class="flash flash-danger">
+        <%= delReview[0] %>
+      </div>
+    </div>
+  <% } %>
+
+  <% if (delListings.length) { %>
+    <div class="flash-wrapper">
+      <div class="flash flash-danger">
+        <%= delListings[0] %>
+      </div>
+    </div>
+  <% } %>
+
+    <% if (error.length) { %>
+    <div class="flash-wrapper">
+      <div class="flash flash-danger">
+        <%= error[0] %>
+      </div>
+    </div>
+  <% } %>

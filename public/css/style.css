@@ -1,0 +1,259 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* navbar */
+.container-fluid{
+    font-size: 1.5rem;
+    background-color: rgb(244, 239, 239);
+    color:rgb(247, 238, 238);
+    position:fixed;
+    top: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.fa-compass{
+    color: rgb(234, 57, 57);
+    font-size: 2rem;
+}
+
+
+/* flash messages */
+.flash-wrapper {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+  /* animation */
+  animation: fadeOut 3s ease forwards;
+}
+
+.flash {
+  min-width: 320px;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.flash-success {
+  background-color: #22c55e;
+  color: white;
+}
+
+.flash-danger {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* animation keyframes */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.95);
+    pointer-events: none;
+  }
+}
+
+
+
+/* container */
+.container{
+    margin-top: 60px;
+}
+
+#container-bar{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-check-reverse{
+   padding: 1.1rem;
+    border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 20%;
+  font-size: 1.2rem;
+ 
+}
+
+
+.tax-info{
+  display: none;
+}
+/* filter */
+.filters {
+  display: flex;
+  padding: 0.5rem 0;
+  border: 1px solid #ddd;
+  width: 80%;
+  justify-content: space-evenly;
+  border-radius: 10px;
+}
+
+.filter {
+  text-decoration: none;
+  color: #6b6b6b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.filter i {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.filter p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* simple hover */
+.filter:hover {
+  color: #000;
+}
+
+/* active filter */
+.filter.active {
+  color: #000;
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+}
+
+
+
+
+/* footer */
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.f-info{
+    background-color: rgb(244, 239, 239);
+    color: black;
+    text-align: center;
+    padding: 10px;
+    position:relative;
+    left: 0;
+    bottom: 0; 
+    width: 100%;
+}
+.f-info-links a{
+    text-decoration: none;
+    color: black;
+    margin: 0px 10px;
+}
+.f-info-links a:hover{
+    color: rgb(68, 86, 218);
+}
+.f-info-links{
+    margin-top: 10px;
+}
+.f-info-socials{
+    margin-top: 10px;
+
+}
+.f-info-socials a{
+    text-decoration: none;
+    color: black;
+    margin: 0px 10px;
+    font-size: 1.5rem;
+}
+.f-info-socials i:hover{
+    color: rgb(6, 6, 6);
+    transform: scale(1.1);
+}
+
+
+/* cards */
+.row{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 0 15px;
+}
+.card{
+    margin: 15px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s;
+    height: 100%;
+
+}
+
+.card:hover{
+    box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.03);
+}
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+.card-body{
+    padding: 0 !important;
+    margin: 10px;
+
+}
+.listing-link{
+    text-decoration: none;
+    color: black;
+}
+
+/* add listing */
+.new-container{
+    margin-top:100px
+}
+
+/* edit listing */
+.edit-container{
+    margin-top:100px
+}
+
+/* show listing */
+.show-container{
+    margin-top:100px
+}
+#input-b{
+    border: 0.5px,solid,rgb(9, 72, 131);
+}
+.show-img{
+    height: 40vh;
+     padding: 10px;
+     padding-left: 0;
+     padding-right: 0;
+   
+     border-radius: 5px;
+}
+#show-btn{
+    height: 40px;
+    width: 100px;
+    margin-right: 40px;
+}
+.btns{
+    display: flex;
+}
+
+/* map */
+
+  #map {
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
