@@ -109,18 +109,58 @@ module.exports.editListingForm = async (req, res, next) => {
     res.render("listings/Edit.ejs", { listing, originalImageUrl }); 
 };
 
-module.exports.updateListing = (async(req,res)=>{
-    let {id} = req.params;
-    let listing = await Listing.findByIdAndUpdate(id,{...req.body.listing});
-    if(typeof req.file !== `undefined`){
-        let url = req.file.path;
-        let filename = req.file.filename;
-        listing.image = {url, filename};
-        await listing.save();
+module.exports.updateListing = async (req, res) => {
+    let { id } = req.params;
+
+    // 1️⃣ Find listing
+    let listing = await Listing.findById(id);
+
+    // 2️⃣ Update basic fields
+    listing.title = req.body.listing.title;
+    listing.description = req.body.listing.description;
+    listing.price = req.body.listing.price;
+    listing.location = req.body.listing.location;
+    listing.country = req.body.listing.country;
+    listing.category = req.body.listing.category;
+
+    // 3️⃣ 🔥 RE-GEOCODE location (MOST IMPORTANT)
+    const location = req.body.listing.location;
+
+    const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`,
+        {
+            headers: {
+                "User-Agent": "RoomRENT-App"
+            }
+        }
+    );
+
+    const data = await response.json();
+
+    if (data.length > 0) {
+        listing.geometry = {
+            type: "Point",
+            coordinates: [
+                parseFloat(data[0].lon),
+                parseFloat(data[0].lat)
+            ]
+        };
     }
-   req.flash("success","listing updated successfully");
-    return res.redirect(`/listings/${id}`);
-});
+
+    // 4️⃣ Update image if provided
+    if (req.file) {
+        listing.image = {
+            url: req.file.path,
+            filename: req.file.filename
+        };
+    }
+
+    // 5️⃣ Save everything
+    await listing.save();
+
+    req.flash("success", "Listing updated successfully");
+    res.redirect(`/listings/${id}`);
+};
 
 module.exports.deleteListing = (async(req,res)=>{
     let {id} = req.params;

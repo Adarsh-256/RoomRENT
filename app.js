@@ -142,7 +142,7 @@ app.all(/.*/,(req,res,next)=>{
 });
 
 app.listen(8080,()=>{
-    console.log("server is listenning port 8080");
+    console.log("server is listenning port 8080/listings");
 });
 
 app.use((err, req, res, next) => {
