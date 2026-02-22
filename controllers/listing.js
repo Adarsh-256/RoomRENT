@@ -2,6 +2,7 @@ const Listing = require ("../models/listing.js");
 
 module.exports.index =  async (req,res)=>{
    res.send("welcome to RoomRENT");
+   
 };
 
 module.exports.searchbar = async (req, res) => {

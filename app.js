@@ -105,6 +105,7 @@ app.get("/login",usercontrollers.login);
 app.post("/login",saveredirectUrl,usercontrollers.loginPost);
 
 //index Route
+app.get("/",controllers.listingindex);
 app.get("/listings",controllers.listingindex)
 
 app.post("/listings",isLoggedIn,upload.single("listing[image]"),validateListing, controllers.CreateListing);
