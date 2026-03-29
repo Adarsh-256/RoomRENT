@@ -74,7 +74,6 @@
 }
 
 #container-bar{
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,6 +119,7 @@
 .filter p {
   margin: 0;
   font-weight: 500;
+  margin-left: 10px;
 }
 
 /* simple hover */
@@ -134,7 +134,16 @@
   padding-bottom: 0.4rem;
 }
 
-
+/* filter */
+@media (max-width: 768px) {
+  .display-tax {
+   display: none;
+  }
+  .container-bar{
+    width: 100%;
+  }
+  
+}
 
 
 /* footer */
@@ -193,6 +202,9 @@
     transition: 0.3s;
     height: 100%;
 
+}
+.card-text{
+  font-size: 20px;
 }
 
 .card:hover{

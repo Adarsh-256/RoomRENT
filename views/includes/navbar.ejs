@@ -1,4 +1,8 @@
 <style>
+  .d-flex{
+  margin-left: 100px;
+
+  }
   .search-inp{
     border-radius: 25px;
     padding: 0.5rem 3rem 0.5rem 3rem;
@@ -20,22 +24,25 @@
   font-size: 2rem;
   font-family: "Anton", sans-serif;
   font-weight: 900;
+
 }
+
 </style>
 <nav class="navbar navbar-expand-md bg-body-light sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        
         <li class="nav-item">
           <a class="nav-link nav-head" href="/listings">StayFinder</a>
         </li>
       </ul>
- <form class="d-flex" role="search" action="/search" method="GET">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    
+ <form class="d-flex"  role="search" action="/search" method="GET">
   <input class="form-control me-2 search-inp"
          type="search"
          name="q"
@@ -44,7 +51,7 @@
 </form>
 
         <ul class="navbar-nav ms-auto">
-           <li class="nav-item">
+           <li class="nav-item" >
           <a class="nav-link" href="/listings/new">Villa your home</a>
         </li>
           <% if(!currUser){ %>

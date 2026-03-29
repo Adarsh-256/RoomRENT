@@ -1,7 +1,5 @@
-if(process.env.NODE_ENV !== "production"){
-    require("dotenv").config();
-}
-console.log(process.env.SECRET);
+require("dotenv").config();
+
 const express= require("express");
 const app = express();
 const mongoose = require ("mongoose");
@@ -25,6 +23,8 @@ const { storage } = require ("./cloudinaryconfig.js");
 const upload = multer({ storage });
 const Listing = require ("./models/listing.js");
 const dbUrl = process.env.ATLASDB_URL
+console.log("dbUrl", dbUrl);
+
 
 //to join ejs file
 const path = require("path");
@@ -52,7 +52,7 @@ const sessionOptions={
     store,
     secret: process.env.SECRET,
     resave: false,
-    saveUnintialized: true,
+    saveUninitialized: true,
     cookie: {
         expires: Date.now() + 7* 24 * 60 * 60 * 1000, //7 days 24 hours 60 min 60 sec 1000 ms
         maxAge: 7* 24 * 60* 60 * 1000,
@@ -72,11 +72,11 @@ async function main(){
 };
 
 // to flash msgs
-app.use(session({
-    secret:process.env.SECRET,
-    resave:false,
-    saveUninitialized:true,
-}));
+// app.use(session({
+//     secret:process.env.SECRET,
+//     resave:false,
+//     saveUninitialized:true,
+// }));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
