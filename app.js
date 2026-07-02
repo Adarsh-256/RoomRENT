@@ -121,7 +121,7 @@ app.get("/listings/new",isLoggedIn,controllers.newListingForm);
 app.get("/listings/:id",(controllers.showListing));
 
 //Create  NEWRoute
-app.post("/listings",validateListing,isLoggedIn, controllers.CreateListing);
+app.post("/listings",validateListing,isLoggedIn, controllers.CreateListing);``
 
 //Edit Route
 app.get("/listings/:id/edit",isLoggedIn,isOwner, controllers.editListingForm);
